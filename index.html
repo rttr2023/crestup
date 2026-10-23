@@ -25,6 +25,8 @@
     font-weight: 700; padding: 14px 28px; border-radius: 999px; font-size: 18px;
   }
   .download:hover { opacity: .85; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .download.secondary { background: transparent; color: var(--fg); border: 2px solid var(--fg); }
   .meta { color: var(--muted); font-size: 14px; margin-top: 10px; }
   h2 { font-size: 20px; margin: 44px 0 14px; }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
@@ -44,8 +46,11 @@
     <img src="logo.png" alt="Logo Crestup : une montagne, un randonneur et un drapeau au sommet">
     <h1>CRESTUP</h1>
     <p class="tagline">Muscu, course, vélo : enregistre tes séances, analyse-les et grimpe les rangs.</p>
-    <a class="download" href="https://github.com/rttr2023/crestup/releases/latest/download/crestup.apk">Télécharger pour Android</a>
-    <p class="meta">Version de test · Android 8 ou plus récent · fichier APK</p>
+    <div class="actions">
+      <a class="download" href="https://github.com/rttr2023/crestup/releases/latest/download/crestup.apk">Télécharger pour Android</a>
+      <a class="download secondary" href="app/">Ouvrir sur iPhone</a>
+    </div>
+    <p class="meta">Version de test · Android 8 ou plus récent (APK) · iPhone : version web dans Safari</p>
   </header>
 
   <h2>Ce que fait Crestup</h2>
@@ -58,7 +63,7 @@
     <div class="card"><h3>Tes données t'appartiennent</h3><p>Fonctionne sans compte et sans réseau, sans publicité. Import Health Connect et export complet.</p></div>
   </div>
 
-  <h2>Installer l'application</h2>
+  <h2>Installer sur Android</h2>
   <ol>
     <li>Sur ton téléphone Android, appuie sur <strong>Télécharger pour Android</strong>.</li>
     <li>Ouvre le fichier <code>crestup.apk</code> une fois téléchargé.</li>
@@ -66,6 +71,15 @@
     <li>Appuie sur <strong>Installer</strong>.</li>
   </ol>
   <p class="note">Crestup n'est pas encore sur le Play Store : c'est une version de test. Pour une mise à jour, télécharge simplement le nouveau fichier depuis cette page, tes données sont conservées.</p>
+
+  <h2>Utiliser sur iPhone</h2>
+  <ol>
+    <li>Ouvre cette page dans <strong>Safari</strong> et appuie sur <strong>Ouvrir sur iPhone</strong>.</li>
+    <li>Appuie sur le bouton <strong>Partager</strong> (le carré avec une flèche vers le haut).</li>
+    <li>Choisis <strong>Sur l'écran d'accueil</strong>, puis <strong>Ajouter</strong>.</li>
+    <li>Lance Crestup depuis son icône, comme une app : il s'ouvre en plein écran.</li>
+  </ol>
+  <p class="note">Sur iPhone, Crestup est une version web : séances, analyse, rangs, coach et feed fonctionnent, mais pas Apple Santé ni les notifications. Tes séances sont enregistrées sur ton iPhone ; crée un compte dans l'app pour les sauvegarder en ligne. Ajoute bien Crestup à l'écran d'accueil : sinon Safari peut effacer ses données si tu ne l'ouvres pas pendant plusieurs jours.</p>
 
   <h2>Un avis, un bug ?</h2>
   <p>Écris à <a href="mailto:altus.app.contact@gmail.com">altus.app.contact@gmail.com</a>, tous les retours aident à améliorer l'app.</p>
