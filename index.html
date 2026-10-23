@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crestup — carnet d'entraînement multi-sport</title>
+<meta name="description" content="Muscu, course, vélo : enregistre tes séances, analyse-les et grimpe les rangs. Version de test Android à télécharger.">
+<link rel="icon" href="logo.png">
+<style>
+  :root {
+    --bg: #000; --fg: #fff; --muted: #a3a3a3; --line: #262626; --card: #0d0d0d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
+  header { text-align: center; }
+  header img { width: 112px; height: 112px; border-radius: 24px; }
+  h1 { font-size: 40px; letter-spacing: 6px; margin: 16px 0 4px; }
+  .tagline { color: var(--muted); margin: 0 0 28px; }
+  .download {
+    display: inline-block; background: var(--fg); color: var(--bg); text-decoration: none;
+    font-weight: 700; padding: 14px 28px; border-radius: 999px; font-size: 18px;
+  }
+  .download:hover { opacity: .85; }
+  .meta { color: var(--muted); font-size: 14px; margin-top: 10px; }
+  h2 { font-size: 20px; margin: 44px 0 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .card h3 { margin: 0 0 6px; font-size: 16px; }
+  .card p { margin: 0; color: var(--muted); font-size: 14px; }
+  ol { padding-left: 20px; }
+  ol li { margin-bottom: 8px; }
+  .note { border-left: 3px solid var(--fg); padding: 4px 0 4px 14px; color: var(--muted); }
+  a { color: var(--fg); }
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="logo.png" alt="Logo Crestup : une montagne, un randonneur et un drapeau au sommet">
+    <h1>CRESTUP</h1>
+    <p class="tagline">Muscu, course, vélo : enregistre tes séances, analyse-les et grimpe les rangs.</p>
+    <a class="download" href="https://github.com/rttr2023/crestup/releases/latest/download/crestup.apk">Télécharger pour Android</a>
+    <p class="meta">Version de test · Android 8 ou plus récent · fichier APK</p>
+  </header>
+
+  <h2>Ce que fait Crestup</h2>
+  <div class="grid">
+    <div class="card"><h3>Enregistre tes séances</h3><p>Plus de 200 exercices, séries, charges, repos, RPE, supersets, minuteur et programmes sur plusieurs semaines.</p></div>
+    <div class="card"><h3>Comprends chaque séance</h3><p>Score Crestup sur 100, carte des muscles travaillés et de la récupération, records et courbes de progression.</p></div>
+    <div class="card"><h3>Grimpe les rangs</h3><p>Du Camp de base au Zénith, par exercice et au global. Niveaux, XP, badges et comparaison anonyme.</p></div>
+    <div class="card"><h3>Séance générée pour toi</h3><p>Choisis la durée, la zone et ton matériel : Crestup compose une séance adaptée à ton objectif.</p></div>
+    <div class="card"><h3>Avec tes amis</h3><p>Publie tes séances, likes, commentaires et défis entre amis.</p></div>
+    <div class="card"><h3>Tes données t'appartiennent</h3><p>Fonctionne sans compte et sans réseau, sans publicité. Import Health Connect et export complet.</p></div>
+  </div>
+
+  <h2>Installer l'application</h2>
+  <ol>
+    <li>Sur ton téléphone Android, appuie sur <strong>Télécharger pour Android</strong>.</li>
+    <li>Ouvre le fichier <code>crestup.apk</code> une fois téléchargé.</li>
+    <li>Si Android bloque l'installation, autorise ton navigateur à <strong>installer des applications inconnues</strong> (le téléphone te propose le réglage), puis reviens en arrière.</li>
+    <li>Appuie sur <strong>Installer</strong>.</li>
+  </ol>
+  <p class="note">Crestup n'est pas encore sur le Play Store : c'est une version de test. Pour une mise à jour, télécharge simplement le nouveau fichier depuis cette page, tes données sont conservées.</p>
+
+  <h2>Un avis, un bug ?</h2>
+  <p>Écris à <a href="mailto:altus.app.contact@gmail.com">altus.app.contact@gmail.com</a>, tous les retours aident à améliorer l'app.</p>
+
+  <footer>
+    <a href="https://rttr2023.github.io/altus-privacy/">Politique de confidentialité</a> · Crestup
+  </footer>
+</main>
+</body>
+</html>
