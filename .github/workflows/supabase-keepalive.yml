@@ -1,0 +1,17 @@
+# Garde le projet Supabase de Crestup actif : sur le plan gratuit, un projet sans activité pendant
+# 7 jours est mis en pause. Une petite requête par jour suffit.
+# Adresse et clé publiques : ce sont celles déjà présentes dans l'app (aucun secret ici).
+name: Supabase keep-alive
+
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Requête légère sur Supabase
+        run: |
+          curl --fail --silent --show-error -X POST             "https://wczucosceascqzqvxtyu.supabase.co/rest/v1/rpc/username_available"             -H "apikey: sb_publishable_CVB2msJwtXtkisSzpGg80A_KOa3bpLD"             -H "Content-Type: application/json"             -d '{"name":"keepalive"}'
