@@ -224,6 +224,8 @@
   tab.addEventListener('click', function () { set(!promo.classList.contains('open')); });
   promo.querySelector('.promo-close').addEventListener('click', function () { set(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+  // S'ouvre tout seul à l'arrivée sur la page (et à chaque rechargement), en glissant.
+  setTimeout(function () { set(true); }, 700);
 })();
 </script>
 </body>
