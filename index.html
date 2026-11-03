@@ -84,6 +84,22 @@
   .summits li.now { background: var(--fg); color: var(--bg); border-color: var(--fg); font-weight: 700; }
   .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
   .steps .card { background: var(--bg); }
+  /* Dépliant du programme PDF, fixé au bord droit */
+  .promo { position: fixed; top: 50%; right: 0; z-index: 50; display: flex; align-items: center; transform: translate(var(--panel), -50%); transition: transform .3s ease; --panel: 300px; }
+  .promo.open { transform: translate(0, -50%); }
+  .promo-tab { writing-mode: vertical-rl; transform: rotate(180deg); background: var(--fg); color: var(--bg); border: 0; border-radius: 0 12px 12px 0; padding: 16px 10px; font: 700 14px/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; letter-spacing: 1px; cursor: pointer; box-shadow: 0 6px 24px rgba(0,0,0,.5); }
+  .promo-card { position: relative; width: var(--panel); background: var(--card); border: 1px solid var(--line); border-right: 0; border-radius: 14px 0 0 14px; padding: 14px; box-shadow: 0 10px 40px rgba(0,0,0,.6); }
+  .promo-card img { display: block; width: 100%; height: auto; border-radius: 10px; }
+  .promo-card h3 { margin: 12px 0 4px; font-size: 17px; }
+  .promo-card p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+  .promo-card .download { display: block; text-align: center; font-size: 16px; padding: 12px 20px; }
+  .promo-close { position: absolute; top: 6px; right: 6px; width: 32px; height: 32px; border-radius: 50%; border: 0; background: rgba(0,0,0,.65); color: var(--fg); font-size: 18px; line-height: 1; cursor: pointer; }
+  .promo:not(.open) .promo-card { visibility: hidden; transition: visibility 0s .3s; }
+  @media (max-width: 600px) {
+    .promo { --panel: min(270px, calc(100vw - 56px)); }
+    .promo-tab { padding: 12px 7px; font-size: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .promo { transition: none; } }
   footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; text-align: center; }
 </style>
 </head>
@@ -165,13 +181,6 @@
   </ol>
   <p class="note">Sur iPhone, Crestup est une version web : séances, analyse, rangs, coach et feed fonctionnent, mais pas Apple Santé ni les notifications. Tes séances sont enregistrées sur ton iPhone ; crée un compte dans l'app pour les sauvegarder en ligne. Ajoute bien Crestup à l'écran d'accueil : sinon Safari peut effacer ses données si tu ne l'ouvres pas pendant plusieurs jours.</p>
 
-  <h2>Programme débutant : De zéro à la PPL</h2>
-  <div class="card">
-    <h3>📘 Programme PDF · 12 semaines · 7 €</h3>
-    <p>Tu débutes en salle ? 6 semaines de full body pour apprendre les mouvements de base, puis 6 semaines de PPL (Push / Pull / Legs), 3 séances par semaine. Tableaux séance par séance, règle de progression, 18 fiches exercices et suivi à imprimer. Les exercices portent le même nom que dans Crestup.</p>
-  </div>
-  <p class="actions" style="justify-content:flex-start"><a class="download" href="https://ko-fi.com/s/d234c99a9a">Voir le programme</a></p>
-
   <h2>Soutenir Crestup</h2>
   <div class="grid">
     <div class="card"><h3>⭐ Crestup+ · 2,99 € / mois</h3><p>Expéditions et défi du mois, Nutrition+, progression avancée, bilans du mois et de l'année, badge, et bientôt le coach IA. Sans engagement, à prendre dans l'app : Profil → Découvrir Crestup+.</p></div>
@@ -197,5 +206,25 @@
     <a href="https://rttr2023.github.io/altus-privacy/">Politique de confidentialité</a> · <a href="conditions.html">Conditions de vente</a> · Crestup
   </footer>
 </main>
+<aside class="promo" id="promo" aria-label="Programme débutant">
+  <button class="promo-tab" type="button" aria-expanded="false" aria-controls="promo-card">Programme débutant</button>
+  <div class="promo-card" id="promo-card">
+    <button class="promo-close" type="button" aria-label="Replier">✕</button>
+    <img src="programme-ppl.jpg" width="600" height="600" alt="Couverture du programme PDF De zéro à la PPL" loading="lazy">
+    <h3>De zéro à la PPL · 7 €</h3>
+    <p>Programme PDF de 12 semaines pour débuter en salle : full body puis PPL, 3 séances par semaine, 18 fiches exercices et suivi à imprimer.</p>
+    <a class="download" href="https://ko-fi.com/s/d234c99a9a">Voir le programme</a>
+  </div>
+</aside>
+<script>
+(function () {
+  var promo = document.getElementById('promo');
+  var tab = promo.querySelector('.promo-tab');
+  function set(open) { promo.classList.toggle('open', open); tab.setAttribute('aria-expanded', String(open)); }
+  tab.addEventListener('click', function () { set(!promo.classList.contains('open')); });
+  promo.querySelector('.promo-close').addEventListener('click', function () { set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+})();
+</script>
 </body>
 </html>
